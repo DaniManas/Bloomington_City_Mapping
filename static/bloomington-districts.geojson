@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "District": "District 1" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-86.55, 39.18],
+            [-86.50, 39.18],
+            [-86.50, 39.16],
+            [-86.55, 39.16],
+            [-86.55, 39.18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "District": "District 2" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-86.55, 39.16],
+            [-86.50, 39.16],
+            [-86.50, 39.14],
+            [-86.55, 39.14],
+            [-86.55, 39.16]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "District": "District 3" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-86.55, 39.14],
+            [-86.50, 39.14],
+            [-86.50, 39.12],
+            [-86.55, 39.12],
+            [-86.55, 39.14]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "District": "District 4" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-86.50, 39.18],
+            [-86.45, 39.18],
+            [-86.45, 39.16],
+            [-86.50, 39.16],
+            [-86.50, 39.18]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "District": "District 5" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-86.50, 39.16],
+            [-86.45, 39.16],
+            [-86.45, 39.14],
+            [-86.50, 39.14],
+            [-86.50, 39.16]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "District": "District 6" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-86.50, 39.14],
+            [-86.45, 39.14],
+            [-86.45, 39.12],
+            [-86.50, 39.12],
+            [-86.50, 39.14]
+          ]
+        ]
+      }
+    }
+  ]
+}

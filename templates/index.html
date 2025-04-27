@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bloomington Facility Navigator</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #fce4ec, #f3e5f5, #e1f5fe, #f8bbd0);
+      background-size: 400% 400%;
+      animation: gradientAnimation 12s ease infinite;
+    }
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .dashboard {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .search-container-static input {
+      transition: box-shadow 0.3s ease;
+    }
+    .search-container-static input:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    }
+    a {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    a:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    #mini-map-wrapper {
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      background: white;
+      overflow: hidden;
+    }
+    .legend {
+      background: white;
+      padding: 10px;
+      font-size: 14px;
+      color: #333;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      max-height: 250px;
+      overflow-y: auto;
+      line-height: 20px;
+    }
+  </style>
+
+</head>
+
+<body class="flex flex-col items-center relative">
+
+  <!-- Hero Section -->
+  <div class="py-10 text-center">
+    <h1 class="text-5xl font-extrabold text-gray-900 drop-shadow mb-4">
+      Bloomington Facility Navigator
+    </h1>
+    <p class="text-lg text-gray-600">
+      Discover public facilities across the city effortlessly.
+    </p>
+  </div>
+
+  <!-- 🌟 Dashboard Section -->
+  <div class="dashboard bg-white bg-opacity-80 rounded-2xl shadow-md p-6 flex flex-col sm:flex-row items-center justify-center gap-6 mb-10 mt-4">
+
+    <!-- Search Box -->
+    <div class="search-container-static">
+      <input type="text" id="facility-search" placeholder="Search facilities..." class="w-64 p-2 rounded-lg border border-gray-300">
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex gap-4">
+      <a href="/dash/?view=resident" class="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full shadow-md">
+        🏡 Resident View
+      </a>
+      <a href="/dash/?view=planner" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-full shadow-md">
+        🏙️ Planner View
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Map Section -->
+  <div id="mini-map-wrapper" class="w-full max-w-6xl h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-16">
+    <div id="mini-map" class="w-full h-full"></div>
+  </div>
+
+  <!-- Summary View (Pie Chart) -->
+<!-- Summary View (Pie Chart + Home Button) -->
+<div id="summary-view" class="w-full max-w-4xl mx-auto hidden flex flex-col items-center gap-8 mb-16">
+
+  <!-- Home Button -->
+  <a href="/" class="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-full shadow-md transform hover:-translate-y-1 transition">
+    🏡 Home
+  </a>
+
+  <!-- Pie Chart -->
+  <canvas id="pieChartCanvas" class="w-full max-w-md mx-auto"></canvas>
+
+</div>
+
+
+
+  <!-- 📜 Scripts -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
